@@ -1,0 +1,51 @@
+<%- include('partials/_header') %>
+<div class="back_re">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="title">
+					<h2><%= training.name %></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="trainers">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="titlepage"></div>
+			</div>
+
+			<div class="col-md-6 offset-4 center pl-5">
+				<div class="blog-author center">
+					<div class="author-bio center">
+						<h3 class="author_name center ml-5" style="color: white">TRAİN FROM : <%= training.user.name %></h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4 offset-4">
+				<div id="trai" class="trainer_box center">
+					<!-- <div class="trainer_img">
+						<figure><img src="images/tra0.jpg" alt="#" /></figure>
+					</div> -->
+					<div class="trainer">
+						<h3><%= training.name %></h3>
+						<p><%= training.description %></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<% if (user && !(user.trainings.includes(training._id))) { %>
+			<form action="/trainings/enroll" method="POST" class="col-md-4 offset-5 pl-5 center">
+				<input type="hidden" name="training_id" value="<%= training._id %>" />
+				<button class="btn btn-md btn-warning text-white"><span>ENROLL</span></button>
+			</form>
+			<% } %>
+		</div>
+	</div>
+</div>
+<%- include('partials/_footer') %>

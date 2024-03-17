@@ -1,0 +1,54 @@
+<%- include('partials/_header') %>
+<div class="back_re">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="title">
+					<h2>Trainings</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- trainers -->
+<div class="trainers">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="titlepage">
+					<p>Lorem Ipsum available, but the majority have suffered</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<% for (let i=0; i< trainings.length; i++) { %>
+			<div class="col-md-4">
+				<div id="trai" class="trainer_box">
+					<div class="trainer_img">
+						<figure><img src="images/tra.jpg" alt="#" /></figure>
+					</div>
+					<div class="trainer">
+						<a href="/trainings/<%= trainings[i].slug %>"><h3><%= trainings[i].name %></h3></a>
+						<p><%= trainings[i].description %></p>
+					</div>
+				</div>
+			</div>
+			<% } %>
+			<div class="col-lg-3 col-12 right-single">
+				<div class="widget-categories">
+					<h3 class="widget-title" style="color: black; background-color: white">Categories</h3>
+					<ul style="color: black; background-color: white">
+						<% for (let i=0; i< categories.length; i++) { %>
+						<li style="color: black; background-color: white">
+							<a href="/trainings?categories=<%= categories[i].slug %>"><%= categories[i].name %></a>
+						</li>
+						<% } %>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end trainers -->
+<%- include('partials/_footer') %>
